@@ -1,15 +1,35 @@
 package co.jp;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Main {
 
 	public static void main(String[] args) {
 
 		List<Person> person = getPerson();
-		System.out.println(person);
+		
+		List<Person> femaleList = person.stream()
+				.filter(man -> man.getGender().equals(Gender.FEMALE))
+				.collect(Collectors.toList());
+		
+		 OptionalLesson optionalLesson = new OptionalLesson();
+		 
+		 
+		Optional<String> personOptional = optionalLesson.optionalLesoon();
+		
+		
+		
+		System.out.println(personOptional.isPresent());
+		System.out.println(personOptional.isEmpty());
+		
+		System.out.println(personOptional);
+		
 	}
 	
+	
+			
 	private static List<Person> getPerson() {
 		return List.of(
 				new Person("Bob", 22, Gender.MALE),
