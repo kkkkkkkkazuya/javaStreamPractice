@@ -23,8 +23,13 @@ public class Main {
 		
 		System.out.println(personOptional.isPresent());
 		System.out.println(personOptional.isEmpty());
+		String orElse = personOptional.orElse("Hello");
+		System.out.println(orElse);
 		
-		System.out.println(personOptional);
+		Optional<String> personConfig = personOptional.map(String::toUpperCase);
+		
+		System.out.println(personConfig.get());
+		
 		
 	}
 	
